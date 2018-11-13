@@ -16,7 +16,7 @@ add_subdirectory(lib/pybind11)
 
 find_package(PythonLibs REQUIRED)
 include_directories(${SOURCE_DIR} ${PYTHON_INCLUDE_DIRS})
-include_directories("lib/gameboycore/include")
+include_directories("lib/gameboycore/src/gameboycore/include")
 
 pybind11_add_module(pygameboycore ${SOURCES} "${SOURCE_DIR}/bindings.cpp")
-target_link_libraries(pygameboycore PRIVATE gameboycore-s)
+target_link_libraries(pygameboycore PRIVATE gameboycore)

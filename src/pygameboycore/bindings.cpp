@@ -31,13 +31,9 @@ PYBIND11_MODULE(pygameboycore, m)
 
   py::class_<PyGameboyCore>(m, "GameboyCore")
     .def(py::init<>())
-    .def("update", &PyGameboyCore::update)
+    .def("update", &PyGameboyCore::emulateFrame)
     .def("open", &PyGameboyCore::open)
     .def("input", &PyGameboyCore::input)
-    .def(
-      "register_scanline_callback",
-      &PyGameboyCore::register_scanline_callback
-    )
     .def(
       "register_vblank_callback",
       &PyGameboyCore::register_vblank_callback
