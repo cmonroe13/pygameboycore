@@ -62,7 +62,7 @@ class CMakeBuild(build_ext):
 
 setup(
     name='pygameboycore',
-    version='0.0.2',
+    version='0.0.3',
     author='Cory Monroe',
     author_email='cory.s.monroe@gmail.com',
     description='Python bindings for GameboyCore',
