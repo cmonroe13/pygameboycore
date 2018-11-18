@@ -34,6 +34,10 @@ PYBIND11_MODULE(pygameboycore, m)
     .def("update", &PyGameboyCore::emulateFrame)
     .def("open", &PyGameboyCore::open)
     .def("input", &PyGameboyCore::input)
+    .def("read_memory", &PyGameboyCore::readMemory)
+    .def("write_memory", &PyGameboyCore::writeMemory)
+    .def("get_save_data", &PyGameboyCore::get_save_data)
+    .def("set_save_data", &PyGameboyCore::set_save_data)
     .def(
       "register_vblank_callback",
       &PyGameboyCore::register_vblank_callback

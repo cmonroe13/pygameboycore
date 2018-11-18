@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 2.8.12)
 
 project(pygameboycore)
 
-set(BUILD_EXAMPLE OFF)
 set(BUILD_TESTS OFF)
+set(BUILD_TOOLS OFF)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
