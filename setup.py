@@ -36,8 +36,6 @@ class CMakeBuild(build_ext):
         cmake_args = [
             '-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=' + extdir,
             '-DPYTHON_EXECUTABLE=' + sys.executable,
-            '-DBUILD_EXAMPLE="OFF',
-            '-DBUILD_TESTS="OFF',
         ]
 
         cfg = 'Debug' if self.debug else 'Release'
@@ -57,16 +55,17 @@ class CMakeBuild(build_ext):
                                                               self.distribution.get_version())
         if not os.path.exists(self.build_temp):
             os.makedirs(self.build_temp)
+
         subprocess.check_call(['cmake', ext.sourcedir] + cmake_args, cwd=self.build_temp, env=env)
         subprocess.check_call(['cmake', '--build', '.'] + build_args, cwd=self.build_temp)
 
 setup(
     name='pygameboycore',
-    version='0.0.3',
+    version='0.0.4',
     author='Cory Monroe',
     author_email='cory.s.monroe@gmail.com',
     description='Python bindings for GameboyCore',
-    long_description='',
+    long_description=open('README.md').read(),
     ext_modules=[CMakeExtension('pygameboycore')],
     cmdclass=dict(build_ext=CMakeBuild),
     zip_safe=False,

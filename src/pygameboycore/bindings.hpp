@@ -66,6 +66,16 @@ public:
       loadROM(&buffer[0], size);
   }
 
+  const std::vector<uint8_t> get_save_data()
+  {
+    return getMMU()->getBatteryRam();
+  }
+
+  void set_save_data(const std::vector<uint8_t>& save_data)
+  {
+    getMMU()->setBatteryRam(save_data);
+  }
+
 private:
   void scanline_callback_(const gb::GPU::Scanline& scanline, int line)
   {
